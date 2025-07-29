@@ -1,38 +1,180 @@
-.App {
-  text-align: center;
+/* navbar style */
+.root-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid yellow; */
+  width: 99.8%;
+  height: 70px;
+  box-shadow: 0px 0px 10px 2px rgba(26, 65, 138, 0.473);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo {
+  height: 55px;
+  width: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  cursor: pointer;
+}
+
+.navbar-items span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.navbar-items span:hover {
+  /* text-decoration: underline; */
+  background: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgba(123, 158, 224, 0.308));
+}
+
+/* others */
+.other-containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+  width: 99.8%;
+  min-height: 400px;
+}
+
+
+/* footer section */
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(18, 26, 136);
+  min-height: 200px;
+  width: 100%;
+}
+
+.footer-logo {
+  height: 90px;
+  width: 200px;
+}
+
+.footer-container-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  /* width: 100%; */
+  gap: 30px;
+}
+
+.footer-section-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-icons {
+  color: white;
+  height: 22px;
+  width: 22px;
+}
+
+.footer-container-section span {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* home section */
+.home-container {
+  width: 100%;
+}
+
+.home-section1 {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 1px;
+  background: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgba(161, 184, 228, 0.308));
+  /* width: 100%; */
+}
+
+.home-section1-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.home-section1-section p {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.home-btn-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.home-section2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+.home-section2-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.home-section2-section label {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.section-icons {
+  height: 40px;
+  width: 40px;
+  color: rgb(18, 26, 136);
+}
+
+.home-section3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+.home-section3 h2{
+  color: rgb(18, 26, 136);
+  margin-bottom: 10px;
+}
+.card-img {
+  height: 180px;
+  width: 160px;
+  padding: 5px;
+  background: linear-gradient(rgba(142, 171, 226, 0.589), rgba(153, 178, 226, 0.425), rgb(253, 253, 253));
 }

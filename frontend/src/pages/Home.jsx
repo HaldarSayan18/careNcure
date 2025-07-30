@@ -12,8 +12,10 @@ import Card from 'react-bootstrap/Card';
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { MdVerifiedUser } from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
+    const location=useLocation();
     return (
         <div className='home-container'>
             {/* section 1 */}
@@ -50,7 +52,7 @@ const Home = () => {
                     {/* doc-1 */}
                     <Col sm>
                         <Card style={{
-                            width: '12rem',
+                            width: 'auto',
                             display: "flex",
                             alignItems: "center", justifyContent: "center", border: "none"
                         }}>
@@ -65,7 +67,7 @@ const Home = () => {
                     {/* doc-2 */}
                     <Col sm>
                         <Card style={{
-                            width: '12rem',
+                            width: 'auto',
                             display: "flex",
                             alignItems: "center", justifyContent: "center", border: "none"
                         }}>
@@ -80,7 +82,7 @@ const Home = () => {
                     {/* doc-3 */}
                     <Col sm>
                         <Card style={{
-                            width: '12rem',
+                            width: 'auto',
                             display: "flex",
                             alignItems: "center", justifyContent: "center", border: "none"
                         }}>
@@ -95,7 +97,7 @@ const Home = () => {
                     {/* doc-4 */}
                     <Col sm>
                         <Card style={{
-                            width: '12rem',
+                            width: 'auto',
                             display: "flex",
                             alignItems: "center", justifyContent: "center", border: "none"
                         }}>
@@ -107,10 +109,13 @@ const Home = () => {
                             </Card.Body>
                         </Card>
                     </Col>
+                </Row>
+                {/* row-2 */}
+                <Row>
                     {/* doc-5 */}
                     <Col sm>
                         <Card style={{
-                            width: '12rem',
+                            width: 'auto',
                             display: "flex",
                             alignItems: "center", justifyContent: "center", border: "none"
                         }}>
@@ -122,13 +127,10 @@ const Home = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-                </Row>
-                {/* row-2 */}
-                <Row>
                     {/* doc-6 */}
                     <Col sm>
                         <Card style={{
-                            width: '12rem',
+                            width: 'auto',
                             display: "flex",
                             alignItems: "center", justifyContent: "center", border: "none"
                         }}>
@@ -143,7 +145,7 @@ const Home = () => {
                     {/* doc-7 */}
                     <Col sm>
                         <Card style={{
-                            width: '12rem',
+                            width: 'auto',
                             display: "flex",
                             alignItems: "center", justifyContent: "center", border: "none"
                         }}>
@@ -158,41 +160,11 @@ const Home = () => {
                     {/* doc-8 */}
                     <Col sm>
                         <Card style={{
-                            width: '12rem',
+                            width: 'auto',
                             display: "flex",
                             alignItems: "center", justifyContent: "center", border: "none"
                         }}>
                             <Card.Img variant="top" src={doctor2} className='card-img' />
-                            <Card.Body>
-                                <Card.Title>Dr. Smriti Gupta</Card.Title>
-                                <Card.Text>Heart Specialist</Card.Text>
-                                {/* <Button variant="primary">Go somewhere</Button> */}
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    {/* doc-9 */}
-                    <Col sm>
-                        <Card style={{
-                            width: '12rem',
-                            display: "flex",
-                            alignItems: "center", justifyContent: "center", border: "none"
-                        }}>
-                            <Card.Img variant="top" src={doctor3} className='card-img' />
-                            <Card.Body>
-                                <Card.Title>Dr. Smriti Gupta</Card.Title>
-                                <Card.Text>Heart Specialist</Card.Text>
-                                {/* <Button variant="primary">Go somewhere</Button> */}
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    {/* doc-10 */}
-                    <Col sm>
-                        <Card style={{
-                            width: '12rem',
-                            display: "flex",
-                            alignItems: "center", justifyContent: "center", border: "none"
-                        }}>
-                            <Card.Img variant="top" src={doctor1} className='card-img' />
                             <Card.Body>
                                 <Card.Title>Dr. Smriti Gupta</Card.Title>
                                 <Card.Text>Heart Specialist</Card.Text>

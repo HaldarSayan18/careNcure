@@ -12,10 +12,9 @@ import Card from 'react-bootstrap/Card';
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { MdVerifiedUser } from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
-import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const location=useLocation();
     return (
         <div className='home-container'>
             {/* section 1 */}
@@ -24,8 +23,12 @@ const Home = () => {
                 <div className='home-section1-section'>
                     <p>Your Life Is<br />Our Respinsibility</p>
                     <div className='home-btn-section'>
-                        <Button type='button' variant='primary'>Book Appointment</Button>
-                        <Button type='button' variant='outline-primary'>Find a Doctor</Button>
+                        <Link to="/appointment" style={{ textDecoration: "none", color: "inherit" }}>
+                            <Button type='button' variant='primary'>Book Appointment</Button>
+                        </Link>
+                        <Link to="/doctors" style={{ textDecoration: "none", color: "inherit" }}>
+                            <Button type='button' variant='outline-primary'>Find a Doctor</Button>
+                        </Link>
                     </div>
                 </div>
             </div>

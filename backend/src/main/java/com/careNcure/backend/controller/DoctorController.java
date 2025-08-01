@@ -29,13 +29,16 @@ public class DoctorController {
 	@PostMapping(value = "/add",consumes = "multipart/form-data")
 	public ResponseEntity<?> addDoctor(@ModelAttribute DoctorDTO doctorDTO,@RequestParam("IMAGE") MultipartFile imageFile){
 		try {
-			Speciality speciality=specialityService.findSpeciality(doctorDTO.getSPECIALITY_ID());
+			List<Speciality> specialities=specialityService.findSpecialityBY_TYPE(doctorDTO.getSPECIALITY_TYPE());
+			if (specialities.isEmpty()) {
+			    return ResponseEntity.badRequest().body("Invalid speciality name: " + doctorDTO.getSPECIALITY_TYPE());
+			}
 			Doctor doctor=new Doctor();
 			doctor.setNAME(doctorDTO.getNAME());
 			doctor.setMOBILE_NO(doctorDTO.getMOBILE_NO());
 			doctor.setEMAIL_ID(doctorDTO.getEMAIL_ID());
 			doctor.setFEES(doctorDTO.getFEES());
-			doctor.setSPECIALITY_ID(speciality);
+			doctor.setSPECIALITY_ID(specialities.get(0));
 			doctor.setIMAGE(imageFile.getBytes());
 			Doctor savedDoctor=doctorService.addDoctor(doctor);
 			return ResponseEntity.ok(savedDoctor);

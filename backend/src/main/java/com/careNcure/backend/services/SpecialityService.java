@@ -21,7 +21,7 @@ public class SpecialityService {
 		return specialityRepo.save(speciality);
 	}
 	
-	public Speciality findSpeciality(int id) {
-		return specialityRepo.findById(id).orElse(null);
+	public List<Speciality> findSpecialityBY_TYPE(String name) {
+		return specialityRepo.findByTYPE(name);
 	}
 }

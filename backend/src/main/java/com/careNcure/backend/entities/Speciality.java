@@ -11,16 +11,21 @@ public class Speciality {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ID;
 	private String TYPE;
-	public int getID() {
+
+	// Getters and setters
+	public int getId() {
 		return ID;
 	}
-	public void setID(int iD) {
-		ID = iD;
+
+	public void setId(int id) {
+		this.ID = id;
 	}
-	public String getTYPE() {
+
+	public String getType() {
 		return TYPE;
 	}
-	public void setTYPE(String tYPE) {
-		TYPE = tYPE;
+
+	public void setType(String type) {
+		this.TYPE = type;
 	}
 }

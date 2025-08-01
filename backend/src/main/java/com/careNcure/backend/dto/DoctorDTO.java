@@ -1,13 +1,11 @@
 package com.careNcure.backend.dto;
 
-import com.careNcure.backend.entities.Speciality;
-
 public class DoctorDTO {
 	private String NAME;
     private long MOBILE_NO;
     private String EMAIL_ID;
     private int FEES;
-    private int SPECIALITY_ID;
+    private String SPECIALITY_TYPE;
 	public String getNAME() {
 		return NAME;
 	}
@@ -32,10 +30,10 @@ public class DoctorDTO {
 	public void setFEES(int fEES) {
 		FEES = fEES;
 	}
-	public int getSPECIALITY_ID() {
-		return SPECIALITY_ID;
+	public String getSPECIALITY_TYPE() {
+		return SPECIALITY_TYPE;
 	}
-	public void setSPECIALITY_ID(int sPECIALITY_ID) {
-		SPECIALITY_ID = sPECIALITY_ID;
+	public void setSPECIALITY_TYPE(String SPECIALITY_TYPE) {
+		this.SPECIALITY_TYPE = SPECIALITY_TYPE;
 	}
 }

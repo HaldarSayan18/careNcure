@@ -17,7 +17,6 @@ public class Appoinment {
 	private String NAME;
 	private int AGE;
 	private long MOBILE_NO;
-	private long AADHAAR_NO;
 	private String ADDRESS;
 	private LocalDate DATE;
 	private String PURPOSE;
@@ -80,14 +79,6 @@ public class Appoinment {
 
 	public void setMOBILE_NO(long mOBILE_NO) {
 		MOBILE_NO = mOBILE_NO;
-	}
-
-	public long getAADHAAR_NO() {
-		return AADHAAR_NO;
-	}
-
-	public void setAADHAAR_NO(long aADHAAR_NO) {
-		AADHAAR_NO = aADHAAR_NO;
 	}
 
 	public Doctor getDOCTOR_ID() {

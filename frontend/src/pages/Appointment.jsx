@@ -35,6 +35,12 @@ const Appointment = () => {
                     </Form.Group>
                 </Row>
 
+
+                <Form.Group className='mb-3' controlId="formGridPurpose">
+                    <Form.Label><strong>Address</strong></Form.Label>
+                    <Form.Control type='text' placeholder="Patient Address" />
+                </Form.Group>
+
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridContact">
                         <Form.Label><strong>Contact Number</strong></Form.Label>
@@ -54,9 +60,9 @@ const Appointment = () => {
                         />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridPurpose">
-                        <Form.Label><strong>Address</strong></Form.Label>
-                        <Form.Control type='text' placeholder="Patient Address" />
+                    <Form.Group as={Col} controlId="formGridDate">
+                        <Form.Label><strong>Date</strong></Form.Label>
+                        <Form.Control type='date' />
                     </Form.Group>
                 </Row>
 
@@ -78,18 +84,6 @@ const Appointment = () => {
                             <option>Select Doctor</option>
                             <option>Dr. Bose</option>
                         </Form.Select>
-                    </Form.Group>
-                </Row>
-
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridDate">
-                        <Form.Label><strong>Date</strong></Form.Label>
-                        <Form.Control type='date' />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridTime">
-                        <Form.Label><strong>Time</strong></Form.Label>
-                        <Form.Control type='time' />
                     </Form.Group>
                 </Row>
 

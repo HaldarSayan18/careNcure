@@ -44,7 +44,7 @@ const Doctors = () => {
                             <Card.Body>
                                 <Card.Title>Dr. Smriti Gupta</Card.Title>
                                 <Card.Text>Heart Specialist</Card.Text>
-                                <Button variant="primary" onClick={handleShow}>View</Button>
+                                <Button style={{width:"100%"}} variant="primary" onClick={handleShow}>View</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -59,7 +59,7 @@ const Doctors = () => {
                             <Card.Body>
                                 <Card.Title>Dr. Smriti Gupta</Card.Title>
                                 <Card.Text>Heart Specialist</Card.Text>
-                                <Button variant="primary" onClick={handleShow}>View</Button>
+                                <Button style={{width:"100%"}} variant="primary" onClick={handleShow}>View</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -74,7 +74,7 @@ const Doctors = () => {
                             <Card.Body>
                                 <Card.Title>Dr. Smriti Gupta</Card.Title>
                                 <Card.Text>Heart Specialist</Card.Text>
-                                <Button variant="primary" onClick={handleShow}>View</Button>
+                                <Button style={{width:"100%"}} variant="primary" onClick={handleShow}>View</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -89,7 +89,7 @@ const Doctors = () => {
                             <Card.Body>
                                 <Card.Title>Dr. Smriti Gupta</Card.Title>
                                 <Card.Text>Heart Specialist</Card.Text>
-                                <Button variant="primary" onClick={handleShow}>View</Button>
+                                <Button style={{width:"100%"}} variant="primary" onClick={handleShow}>View</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -107,7 +107,7 @@ const Doctors = () => {
                             <Card.Body>
                                 <Card.Title>Dr. Smriti Gupta</Card.Title>
                                 <Card.Text>Heart Specialist</Card.Text>
-                                <Button variant="primary" onClick={handleShow}>View</Button>
+                                <Button style={{width:"100%"}} variant="primary" onClick={handleShow}>View</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -122,7 +122,7 @@ const Doctors = () => {
                             <Card.Body>
                                 <Card.Title>Dr. Smriti Gupta</Card.Title>
                                 <Card.Text>Heart Specialist</Card.Text>
-                                <Button variant="primary" onClick={handleShow}>View</Button>
+                                <Button style={{width:"100%"}} variant="primary" onClick={handleShow}>View</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -137,7 +137,7 @@ const Doctors = () => {
                             <Card.Body>
                                 <Card.Title>Dr. Smriti Gupta</Card.Title>
                                 <Card.Text>Heart Specialist</Card.Text>
-                                <Button variant="primary" onClick={handleShow}>View</Button>
+                                <Button style={{width:"100%"}} variant="primary" onClick={handleShow}>View</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -152,7 +152,7 @@ const Doctors = () => {
                             <Card.Body>
                                 <Card.Title>Dr. Smriti Gupta</Card.Title>
                                 <Card.Text>Heart Specialist</Card.Text>
-                                <Button variant="primary" onClick={handleShow}>View</Button>
+                                <Button style={{width:"100%"}} variant="primary" onClick={handleShow}>View</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -173,7 +173,7 @@ const Doctors = () => {
                     </div>
                 </Modal.Body>
                 {/* <Modal.Footer style={{ border: "none" }}>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button style={{width:"100%"}} variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
                 </Modal.Footer> */}

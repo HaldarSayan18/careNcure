@@ -1,101 +1,135 @@
 import React, { useState } from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css';
 import { toast, ToastContainer } from 'react-toastify';
+import { appointmentFormValidation } from '../validation/FormValidation';
 
 const Appointment = () => {
     const [phone, setPhone] = useState('');
-    const handleAppointmentSubmit = () => {
+    const handleAppointmentSubmit = (values, { resetForm }) => {
+        values.contact_number = phone;
+        console.log("Form Submitted:", values);
         toast.success("Booked!");
+        resetForm();
     };
     return (
         <div className='appointment-container'>
             <ToastContainer />
             <h2>Book an Appointment</h2>
-            <Form className='appointment-form' method='' action=''>
-                <h4>Patient Details</h4>
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridName">
-                        <Form.Label><strong>Patient Name</strong></Form.Label>
-                        <Form.Control type="text" placeholder="Patient Name" />
-                    </Form.Group>
+            {/* appointment form with validation */}
+            <Formik
+                initialValues={{
+                    patient_name: "",
+                    patient_age: "",
+                    address: "",
+                    contact_number: "",
+                    date: "",
+                    medical_speciality: "",
+                    select_doc: "",
+                    purpose: "",
+                }}
+                validationSchema={appointmentFormValidation}
+                onSubmit={handleAppointmentSubmit}
+            >
+                {({ errors, touched, setFieldValue }) => (
+                    <Form className='appointment-form'>
+                        <h4>Patient Details</h4>
 
-                    <Form.Group as={Col} controlId="formGridAge">
-                        <Form.Label><strong>Patient Age</strong></Form.Label>
-                        <Form.Control type="number" min={0} max={99} placeholder="Patient age" onInput={(e) => {
-                            // Restrict more than 2 digits
-                            if (e.target.value.length > 2) {
-                                e.target.value = e.target.value.slice(0, 2);
-                            }
-                        }} />
-                    </Form.Group>
-                </Row>
+                        <Row className="mb-3">
+                            <Col>
+                                <label><strong>Patient Name</strong></label>
+                                <Field name="patient_name" className="form-control" placeholder="Patient Name" />
+                                <ErrorMessage name="patient_name" component="div" className="text-danger" />
+                            </Col>
 
+                            <Col>
+                                <label><strong>Patient Age</strong></label>
+                                <Field
+                                    name="patient_age"
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="Age"
+                                    onInput={(e) => {
+                                        if (e.target.value.length > 2) {
+                                            e.target.value = e.target.value.slice(0, 2);
+                                        }
+                                    }}
+                                />
+                                <ErrorMessage name="patient_age" component="div" className="text-danger" />
+                            </Col>
+                        </Row>
 
-                <Form.Group className='mb-3' controlId="formGridPurpose">
-                    <Form.Label><strong>Address</strong></Form.Label>
-                    <Form.Control type='text' placeholder="Patient Address" />
-                </Form.Group>
+                        <div className="mb-3">
+                            <label><strong>Address</strong></label>
+                            <Field name="address" className="form-control" placeholder="Patient Address" />
+                            <ErrorMessage name="address" component="div" className="text-danger" />
+                        </div>
 
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridContact">
-                        <Form.Label><strong>Contact Number</strong></Form.Label>
-                        <PhoneInput
-                            country={'in'}
-                            onlyCountries={['in']}
-                            value={phone}
-                            onChange={setPhone}
-                            inputProps={{
-                                name: 'phone',
-                                required: true,
-                                className: 'form-control'
-                            }}
-                            placeholder='+91-xxxxxxxxx'
-                            containerClass='react-tel-input w-100'
-                            inputClass='form-control'
-                        />
-                    </Form.Group>
+                        <Row className="mb-3">
+                            <Col>
+                                <label><strong>Contact Number</strong></label>
+                                <PhoneInput
+                                    country={'in'}
+                                    onlyCountries={['in']}
+                                    value={phone}
+                                    onChange={(value) => {
+                                        setPhone(value);
+                                        setFieldValue("contact_number", value); // <-- updates Formik
+                                    }}
+                                    inputProps={{
+                                        required: true,
+                                        className: 'form-control'
+                                    }}
+                                    containerClass='react-tel-input w-100'
+                                />
+                                <ErrorMessage name="contact_number" component="div" className="text-danger" />
+                            </Col>
 
-                    <Form.Group as={Col} controlId="formGridDate">
-                        <Form.Label><strong>Date</strong></Form.Label>
-                        <Form.Control type='date' />
-                    </Form.Group>
-                </Row>
+                            <Col>
+                                <label><strong>Date</strong></label>
+                                <Field type="date" name="date" className="form-control" />
+                                <ErrorMessage name="date" component="div" className="text-danger" />
+                            </Col>
+                        </Row>
 
+                        <Row className="mb-3">
+                            <Col>
+                                <label><strong>Medical Specialty</strong></label>
+                                <Field as="select" name="medical_speciality" className="form-select">
+                                    <option value="">Choose Speciality</option>
+                                    <option value="Orthopedic">Orthopedic</option>
+                                    <option value="Neurologists">Neurologists</option>
+                                    <option value="Cardiologists">Cardiologists</option>
+                                </Field>
+                                <ErrorMessage name="medical_speciality" component="div" className="text-danger" />
+                            </Col>
 
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridMedSpl">
-                        <Form.Label><strong>Medical Specialty</strong></Form.Label>
-                        <Form.Select defaultValue="Choose Speciality">
-                            <option>Choose Speciality</option>
-                            <option>Orthopedic</option>
-                            <option>Neurologists</option>
-                            <option>Cardiologists</option>
-                        </Form.Select>
-                    </Form.Group>
+                            <Col>
+                                <label><strong>Select Doctor</strong></label>
+                                <Field as="select" name="select_doc" className="form-select">
+                                    <option value="">Select Doctor</option>
+                                    <option value="Dr. Bose">Dr. Bose</option>
+                                </Field>
+                                <ErrorMessage name="select_doc" component="div" className="text-danger" />
+                            </Col>
+                        </Row>
 
-                    <Form.Group as={Col} controlId="formGridSelectDoctor">
-                        <Form.Label><strong>Select Doctor</strong></Form.Label>
-                        <Form.Select defaultValue="Select Doctor">
-                            <option>Select Doctor</option>
-                            <option>Dr. Bose</option>
-                        </Form.Select>
-                    </Form.Group>
-                </Row>
+                        <div className="mb-3">
+                            <label><strong>Purpose</strong></label>
+                            <Field name="purpose" className="form-control" placeholder="Mention your purpose" />
+                            <ErrorMessage name="purpose" component="div" className="text-danger" />
+                        </div>
 
-                <Form.Group className="mb-3" controlId="formGridPurpose">
-                    <Form.Label><strong>Purpose of Appointment</strong></Form.Label>
-                    <Form.Control type='text' placeholder="Mention your purpose" />
-                </Form.Group>
-
-                <Button variant="primary" type="button" onClick={handleAppointmentSubmit} style={{ width: "100%", height: "50px", marginBottom: "5px" }}>
-                    Book Appointment
-                </Button>
-            </Form>
+                        <Button variant="primary" type="submit" style={{ width: "100%", height: "50px" }}>
+                            Book Appointment
+                        </Button>
+                    </Form>
+                )}
+            </Formik>
         </div>
     )
 }

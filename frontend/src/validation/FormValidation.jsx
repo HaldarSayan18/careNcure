@@ -18,3 +18,36 @@ export const appointmentFormValidation = Yup.object().shape({
     select_doc: Yup.string().required('Doctor selection is required'),
     purpose: Yup.string().required('Purpose is required'),
 });
+
+
+export const RegisterFormValidation = Yup.object().shape({
+    username: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Full name is required'),
+    email: Yup.string()
+        .email('Email must be correct')
+        .required('Email id is required'),
+    mobile: Yup.string()
+        .matches(/^[0-9]{10}$/, 'Mobile number must be 10 digits')
+        .required('Mobile number is required'),
+    password: Yup.string()
+    .min(8, 'Password length must be 8')
+    .max(9, 'Password length must be 8')
+    .required("Password is required"),
+    confirmPassword: Yup.string()
+    .min(8, 'Password length must match')
+    .max(9, 'Password length must match')
+    .required("Re-enter password"),
+    address: Yup.string().required('Address is required'),
+});
+
+export const LoginFormValidation = Yup.object().shape({
+    email: Yup.string()
+        .email('Email must be correct')
+        .required('Email id is required'),
+    password: Yup.string()
+    .min(8, 'Password length must be 8')
+    .max(9, 'Password length must be 8')
+    .required("Password is required"),
+});

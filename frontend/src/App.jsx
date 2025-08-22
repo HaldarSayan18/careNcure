@@ -6,6 +6,12 @@ import Footer from './layout/Footer';
 import WorkInProgress from './pages/WorkInprogress';
 import Appointment from './pages/Appointment';
 import Doctors from './pages/Doctors';
+import LoginRegisterPage from './pages/LoginRegisterPage';
+
+// js
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 function App() {
   return (
@@ -17,6 +23,7 @@ function App() {
           <Route path='appointment' element={<Appointment />} />
           <Route path='*' element={<WorkInProgress />} />
         </Route>
+        <Route path='sign' element={<LoginRegisterPage />} />
       </Routes>
       <Footer />
     </>

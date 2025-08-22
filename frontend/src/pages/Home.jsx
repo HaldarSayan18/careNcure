@@ -21,7 +21,7 @@ const Home = () => {
             <div className='home-section1'>
                 <img src={doctor1} alt='doctor1' />
                 <div className='home-section1-section'>
-                    <p>Your Life Is<br />Our Respinsibility</p>
+                    <p>Your Life Is<br />Our Responsibility</p>
                     <div className='home-btn-section'>
                         <Link to="/appointment" style={{ textDecoration: "none", color: "inherit" }}>
                             <Button type='button' variant='primary'>Book Appointment</Button>

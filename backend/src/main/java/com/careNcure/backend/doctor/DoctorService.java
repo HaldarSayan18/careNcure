@@ -21,6 +21,7 @@ public class DoctorService {
 	public Doctor addDoctor(DoctorDTO doctorDTO,MultipartFile image) {
 		Doctor doctor=new Doctor();
 		Hospital hospital=hospitalRepo.findById(doctorDTO.getHospital()).orElseThrow(()->new NoDataFoundException("Invalid Hospital"));
+		doctor.setId(generateId(doctorDTO.getSpeciality(),hospital.getId()))
 		doctor.setFees(doctorDTO.getFees());
 		doctor.setSpeciality(specialityRepo.findBySpecialityAndHospital(doctorDTO.getSpeciality(),hospital).orElseThrow(()->new NoDataFoundException("invalid speciality")));
 		doctor.setHospital(hospital);
@@ -29,9 +30,9 @@ public class DoctorService {
 		return doctorRepo.save(doctor);
 	}
 	
-	private String generateId(String speciality) {
+	private String generateId(String speciality,int hospitalId) {
 		long count=doctorRepo.countBySpeciality(specialityRepo.findById(speciality).orElseThrow(()->new NoDataFoundException("invalid speciality")));
 		count++;
-		return "DOC"+speciality.substring(0, 3).toUpperCase()+ String.format("%03d", count);
+		return "HSP"+hospitalId+"DOC"+speciality.substring(0, 3).toUpperCase()+ String.format("%04d", count);
 	}
 }

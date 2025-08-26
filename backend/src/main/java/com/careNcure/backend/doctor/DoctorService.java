@@ -1,5 +1,7 @@
 package com.careNcure.backend.doctor;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,13 +23,18 @@ public class DoctorService {
 	public Doctor addDoctor(DoctorDTO doctorDTO,MultipartFile image) {
 		Doctor doctor=new Doctor();
 		Hospital hospital=hospitalRepo.findById(doctorDTO.getHospital()).orElseThrow(()->new NoDataFoundException("Invalid Hospital"));
-		doctor.setId(generateId(doctorDTO.getSpeciality(),hospital.getId()))
+		doctor.setId(generateId(doctorDTO.getSpeciality(),hospital.getId()));
 		doctor.setFees(doctorDTO.getFees());
 		doctor.setSpeciality(specialityRepo.findBySpecialityAndHospital(doctorDTO.getSpeciality(),hospital).orElseThrow(()->new NoDataFoundException("invalid speciality")));
 		doctor.setHospital(hospital);
-		doctor.setemail(doctorDTO.getemail());
-		doctor.setName(doctorDTO.getName());
+		doctor.setEmail(doctorDTO.getEmail());
+		doctor.setFirstName(doctorDTO.getFirstName());
+		doctor.setLastName(doctorDTO.getLastName());
 		return doctorRepo.save(doctor);
+	}
+	
+	public List<Doctor> getDoctorList(){
+		return doctorRepo.findAll();
 	}
 	
 	private String generateId(String speciality,int hospitalId) {

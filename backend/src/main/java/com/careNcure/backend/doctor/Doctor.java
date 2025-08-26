@@ -15,7 +15,9 @@ public class Doctor {
 	@Column(nullable = false,unique = true)
 	private String id;
 	@Column(nullable = false)
-	private String name;
+	private String firstName;
+	@Column(nullable = false)
+	private String lastName;
 	@Column(nullable = false,unique = true)
 	private long mobileNo;
 	@Column(nullable = false,unique = true)
@@ -34,11 +36,17 @@ public class Doctor {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public long getMobileNo() {
 		return mobileNo;
@@ -46,10 +54,10 @@ public class Doctor {
 	public void setMobileNo(long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
-	public String getemail() {
+	public String getEmail() {
 		return email;
 	}
-	public void setemail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 	public int getFees() {
@@ -58,19 +66,16 @@ public class Doctor {
 	public void setFees(int fees) {
 		this.fees = fees;
 	}
-	public Speciality getSpeciality() {
-		return speciality;
-	}
-	public void setSpeciality(Speciality speciality) {
-		this.speciality = speciality;
-	}
 	public Hospital getHospital() {
 		return hospital;
 	}
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
 	}
-	
-	
-	
+	public Speciality getSpeciality() {
+		return speciality;
+	}
+	public void setSpeciality(Speciality speciality) {
+		this.speciality = speciality;
+	}
 }

@@ -1,5 +1,10 @@
 package com.careNcure.backend.patient;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 @Entity
 public class Patient{
     @Id
@@ -26,7 +31,7 @@ public class Patient{
     public String getLastName(){
         return this.lastName;
     }
-    public void setFirstName(String lastName){
+    public void setLastName(String lastName){
         this.lastName=lastName;
     }
     public long getMobile(){

@@ -1,13 +1,12 @@
-package com.careNcure.backend.payLoads;
+package com.careNcure.backend.payLoads.registrationDto;
 
-public class DoctorDTO {
+public class PatientRegistrationDTO {
 	private String firstName;
 	private String lastName;
 	private long mobile;
 	private String email;
-	private int fees;
-	private int hospital;
-	private String speciality;
+	private long aadhar;
+	private String password;
 	public String getFirstName() {
 		return firstName;
 	}
@@ -32,24 +31,16 @@ public class DoctorDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getFees() {
-		return fees;
+	public long getAadhar() {
+		return aadhar;
 	}
-	public void setFees(int fees) {
-		this.fees = fees;
+	public void setAadhar(long aadhar) {
+		this.aadhar = aadhar;
 	}
-	public int getHospital() {
-		return hospital;
+	public String getPassword() {
+		return password;
 	}
-	public void setHospital(int hospital) {
-		this.hospital = hospital;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getSpeciality() {
-		return speciality;
-	}
-	public void setSpeciality(String speciality) {
-		this.speciality = speciality;
-	}
-	
-	
 }

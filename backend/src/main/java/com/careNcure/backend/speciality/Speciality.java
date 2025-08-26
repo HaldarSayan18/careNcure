@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Speciality {
 	@Id
-	@Column(nullable = false,unique = true)
+	@Column(nullable = false)
 	private String speciality;
 	@ManyToOne
 	@JoinColumn(name = "hospitalId",nullable = false)

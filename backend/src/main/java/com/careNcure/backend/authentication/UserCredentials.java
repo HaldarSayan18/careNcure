@@ -4,6 +4,8 @@ import com.careNcure.backend.enums.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,10 +21,17 @@ public class UserCredentials{
     private long mobile;
     @Column(nullable=false)
     private String password;
+    @Enumerated(EnumType.STRING)
     @Column(nullable=false)
     private Role role;
     
-    public String getEmail(){
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getEmail(){
         return this.email;
     }
     public void setEmail(String email){

@@ -1,19 +1,20 @@
 package com.careNcure.backend.patient;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.careNcure.backend.authentication.UserCredentials;
-import com.careNcure.backend.authentication.UserRepo;
-import com.careNcure.backend.enums.Role;
+import com.careNcure.backend.authentication.UserService;
 import com.careNcure.backend.exception.DataAlreadyExistsException;
+import com.careNcure.backend.payLoads.UserDTO;
 import com.careNcure.backend.payLoads.registrationDto.PatientRegistrationDTO;
 
 @Service
 public class PatientService {
-
 	@Autowired
-	private UserRepo userRepo;
+	private PasswordEncoder passwordEncoder;
+	@Autowired
+	private UserService userService;
 	@Autowired
 	private PatientRepo patientRepo;
 	
@@ -27,13 +28,14 @@ public class PatientService {
 		patient.setLastName(patientRegistrationDTO.getLastName());
 		patient.setEmail(patientRegistrationDTO.getEmail());
 		patient.setMobile(patientRegistrationDTO.getMobile());
+		patient.setAddress(patientRegistrationDTO.getAddress());
 		patientRepo.save(patient);
-		UserCredentials userCredentials=new UserCredentials();
-		userCredentials.setEmail(patientRegistrationDTO.getEmail());
-		userCredentials.setMobile(patientRegistrationDTO.getMobile());
-		userCredentials.setPassword(patientRegistrationDTO.getPassword());
-		userCredentials.setRole(Role.Patient);
-		userRepo.save(userCredentials);
+		UserDTO userDTO=new UserDTO();
+		userDTO.setEmail(patientRegistrationDTO.getEmail());
+		userDTO.setMobile(patientRegistrationDTO.getMobile());
+		userDTO.setPassword(passwordEncoder.encode(patientRegistrationDTO.getPassword()));
+		userDTO.setRole("Patient");
+		userService.addUser(userDTO);
 	}
 
 }

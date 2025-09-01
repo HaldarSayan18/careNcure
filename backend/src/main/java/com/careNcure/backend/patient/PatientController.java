@@ -17,7 +17,7 @@ public class PatientController {
 	@Autowired
 	private PatientService patientService;
 	
-	@PostMapping("/register")
+	@PostMapping("/registration")
 	public ResponseEntity<ApiResponse> registerPatient(@RequestBody PatientRegistrationDTO patient){
 		try {
 			patientService.registerPatient(patient);

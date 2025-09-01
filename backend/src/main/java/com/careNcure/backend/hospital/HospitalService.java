@@ -1,5 +1,7 @@
 package com.careNcure.backend.hospital;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,8 @@ public class HospitalService {
 		hospital.setPin(hospitalDTO.getPin());
 		hospital.setState(IndianState.valueOf(hospitalDTO.getState()));
 		return hospitalRepo.save(hospital);
+	}
+	public List<Hospital> getHospitalList(){
+		return hospitalRepo.findAll();
 	}
 }

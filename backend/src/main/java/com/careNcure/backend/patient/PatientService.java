@@ -1,6 +1,7 @@
 package com.careNcure.backend.patient;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +12,6 @@ import com.careNcure.backend.payLoads.registrationDto.PatientRegistrationDTO;
 
 @Service
 public class PatientService {
-	@Autowired
-	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -33,7 +32,7 @@ public class PatientService {
 		UserDTO userDTO=new UserDTO();
 		userDTO.setEmail(patientRegistrationDTO.getEmail());
 		userDTO.setMobile(patientRegistrationDTO.getMobile());
-		userDTO.setPassword(passwordEncoder.encode(patientRegistrationDTO.getPassword()));
+		userDTO.setPassword(patientRegistrationDTO.getPassword());
 		userDTO.setRole("Patient");
 		userService.addUser(userDTO);
 	}

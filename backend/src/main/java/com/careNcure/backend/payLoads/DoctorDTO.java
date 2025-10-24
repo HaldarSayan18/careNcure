@@ -8,6 +8,13 @@ public class DoctorDTO {
 	private int fees;
 	private int hospital;
 	private String speciality;
+	private String imageUrl;
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

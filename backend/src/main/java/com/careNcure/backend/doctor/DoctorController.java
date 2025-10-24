@@ -1,12 +1,14 @@
 package com.careNcure.backend.doctor;
 
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,11 +36,25 @@ public class DoctorController{
     @GetMapping("/doctor-list")
     public ResponseEntity<?> getDoctors(){
     	try {
-			List doctorlist=doctorService.getDoctorList();
-			return ResponseEntity.status(HttpStatus.OK).body(doctorlist);
+			Map<Integer, Map<String, Object>> response=doctorService.getDoctorList();
+			return ResponseEntity.status(HttpStatus.OK).body(response);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(e.getMessage(), false));
 		}
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getDoctor(@PathVariable String id){
+    	try {
+    		DoctorDTO response=doctorService.getDoctor(id);
+        	return ResponseEntity.status(HttpStatus.OK).body(response);
+    	}catch(Exception e) {
+    		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    	}
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteDoctor(@PathVariable String id){
+    	boolean result=doctorService.deleteDoctor(id);
+    	return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("Deleted successfully", result));
     }
 
 }

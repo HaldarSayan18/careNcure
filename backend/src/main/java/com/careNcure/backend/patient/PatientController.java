@@ -20,9 +20,11 @@ public class PatientController {
 	@PostMapping("/registration")
 	public ResponseEntity<ApiResponse> registerPatient(@RequestBody PatientRegistrationDTO patient){
 		try {
+			System.out.println(patient);
 			patientService.registerPatient(patient);
 			return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse("Registration successful", true));
 		}catch(Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(e.getMessage(), false));
 		}
 	}

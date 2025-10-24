@@ -24,12 +24,19 @@ public class Doctor {
 	private String email;
 	@Column(nullable = true)
 	private int fees;
+	private String imageUrl;
 	@ManyToOne
 	@JoinColumn(name = "hospitalId")
 	private Hospital hospital;
 	@ManyToOne
 	@JoinColumn(name = "speciality")
 	private Speciality speciality;
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 	public String getId() {
 		return id;
 	}

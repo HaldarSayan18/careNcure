@@ -36,13 +36,13 @@ public class AuthController {
 				.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getLogin(), loginDTO.getPassword()));
 		String accessToken = jwtService.generateAccessToken(loginDTO.getLogin());
 		String refreshToken =jwtService.generateRefreshToken(loginDTO.getLogin());
-		response.put("Access Token", accessToken);
-		response.put("Refresh Token", refreshToken);
+		response.put("AccessToken", accessToken);
+		response.put("RefreshToken", refreshToken);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 
 	}
 
-	// --- 2️⃣ Refresh Access Token ---
+	
 //    @PostMapping("/refresh")
 //    public Map<String, String> refreshToken(@RequestHeader("Authorization") String refreshTokenHeader) {
 //        if (refreshTokenHeader == null || !refreshTokenHeader.startsWith("Bearer ")) {

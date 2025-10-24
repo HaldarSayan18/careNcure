@@ -1,8 +1,6 @@
 package com.careNcure.backend.patient;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.careNcure.backend.authentication.UserService;
@@ -19,9 +17,9 @@ public class PatientService {
 	
 	public void registerPatient(PatientRegistrationDTO patientRegistrationDTO) {
 		if(patientRepo.findByMobile(patientRegistrationDTO.getMobile())!=null)
-			throw new DataAlreadyExistsException("Patient already registered");
+			throw new DataAlreadyExistsException("Mobile already registered");
 		else if(patientRepo.findByEmail(patientRegistrationDTO.getEmail())!=null)
-			throw new DataAlreadyExistsException("Patient already registered");
+			throw new DataAlreadyExistsException("Email already registered");
 		Patient patient=new Patient();
 		patient.setFirstName(patientRegistrationDTO.getFirstName());
 		patient.setLastName(patientRegistrationDTO.getLastName());

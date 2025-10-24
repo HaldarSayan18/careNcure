@@ -55,4 +55,10 @@ public class PatientRegistrationDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.firstName+"/"+this.lastName+"/"+this.email+"/"+this.mobile+"/"+this.password+"/"+this.address;
+	}
 }

@@ -5,12 +5,15 @@ import Header from './layout/Header';
 import Footer from './layout/Footer';
 import WorkInProgress from './pages/WorkInprogress';
 import Appointment from './pages/Appointment';
+import BedAvailability from './pages/BedAvailability';
 import Doctors from './pages/Doctors';
 import LoginRegisterPage from './pages/LoginRegisterPage';
 
 // js
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { ProtectedRoute } from './auth/ProtectedRoute';
+import UserProfile from './pages/UserProfile';
 
 
 function App() {
@@ -19,8 +22,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Header />}>
           <Route index element={<Home />} />
-          <Route path='doctors' element={<Doctors />} />
-          <Route path='appointment' element={<Appointment />} />
+          <Route path='doctors' element={<ProtectedRoute><Doctors /></ProtectedRoute>} />
+          <Route path='appointment' element={<ProtectedRoute><Appointment /></ProtectedRoute>} />
+          <Route path='appointment' element={<ProtectedRoute><Appointment /></ProtectedRoute>} />
+          <Route path='bed-availability' element={<ProtectedRoute><BedAvailability /></ProtectedRoute>} />
+          <Route path='my-profile' element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+          <Route path='*' element={<WorkInProgress />} />
           <Route path='*' element={<WorkInProgress />} />
         </Route>
         <Route path='sign' element={<LoginRegisterPage />} />

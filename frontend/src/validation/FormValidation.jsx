@@ -21,10 +21,14 @@ export const appointmentFormValidation = Yup.object().shape({
 
 
 export const RegisterFormValidation = Yup.object().shape({
-    username: Yup.string()
+    firstName: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
-        .required('Full name is required'),
+        .required('First name is required'),
+    lastName: Yup.string()
+        .min(1, 'Too Short!')
+        .max(15, 'Too Long!')
+        .required('Last name is required'),
     email: Yup.string()
         .email('Email must be correct')
         .required('Email id is required'),
@@ -35,15 +39,15 @@ export const RegisterFormValidation = Yup.object().shape({
     .min(8, 'Password length must be 8')
     .max(9, 'Password length must be 8')
     .required("Password is required"),
-    confirmPassword: Yup.string()
-    .min(8, 'Password length must match')
-    .max(9, 'Password length must match')
-    .required("Re-enter password"),
+    // confirmPassword: Yup.string()
+    // .min(8, 'Password length must match')
+    // .max(9, 'Password length must match')
+    // .required("Re-enter password"),
     address: Yup.string().required('Address is required'),
 });
 
 export const LoginFormValidation = Yup.object().shape({
-    email: Yup.string()
+    login: Yup.string()
         .email('Email must be correct')
         .required('Email id is required'),
     password: Yup.string()

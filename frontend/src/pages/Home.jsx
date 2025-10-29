@@ -40,7 +40,7 @@ const Home = () => {
                 </div>
                 <div className='home-section2-section'>
                     <MdVerifiedUser className='section-icons' />
-                    <label>Cerrtified Doctors</label>
+                    <label>Certified Doctors</label>
                 </div>
                 <div className='home-section2-section'>
                     <TbBrandBooking className='section-icons' />
@@ -49,7 +49,7 @@ const Home = () => {
             </div>
             {/* section 3 */}
             <Container className='home-section3'>
-                <h2>Our Doctors</h2>
+                <h2>Our Hospitality Partners</h2>
                 {/* row-1 */}
                 <Row>
                     {/* doc-1 */}

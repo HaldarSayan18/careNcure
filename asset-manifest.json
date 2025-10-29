@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/careNcure/static/css/main.f2a09aca.css",
+    "main.js": "/careNcure/static/js/main.d04ceae5.js",
+    "static/js/453.670e15c7.chunk.js": "/careNcure/static/js/453.670e15c7.chunk.js",
+    "static/media/doctor3.png": "/careNcure/static/media/doctor3.9dca30a421705b59b438.png",
+    "static/media/doctor4.png": "/careNcure/static/media/doctor4.4223f8e093d9c1b67359.png",
+    "static/media/footer_logo.png": "/careNcure/static/media/footer_logo.1788072cc9cd86e4a012.png",
+    "static/media/doctor2.png": "/careNcure/static/media/doctor2.492a392e964ecc1f9217.png",
+    "static/media/doctor1.png": "/careNcure/static/media/doctor1.c09c5a86cd7217b36cbe.png",
+    "static/media/logo.png": "/careNcure/static/media/logo.629918d3fba0a91c1ff4.png",
+    "index.html": "/careNcure/index.html",
+    "main.f2a09aca.css.map": "/careNcure/static/css/main.f2a09aca.css.map",
+    "main.d04ceae5.js.map": "/careNcure/static/js/main.d04ceae5.js.map",
+    "453.670e15c7.chunk.js.map": "/careNcure/static/js/453.670e15c7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2a09aca.css",
+    "static/js/main.d04ceae5.js"
+  ]
+}

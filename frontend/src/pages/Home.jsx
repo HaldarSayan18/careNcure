@@ -23,10 +23,10 @@ const Home = () => {
                 <div className='home-section1-section'>
                     <p>Your Life Is<br />Our Responsibility</p>
                     <div className='home-btn-section'>
-                        <Link to="/appointment" style={{ textDecoration: "none", color: "inherit" }}>
+                        <Link to="/appointment" className='btn-link'>
                             <Button type='button' variant='primary'>Book Appointment</Button>
                         </Link>
-                        <Link to="/doctors" style={{ textDecoration: "none", color: "inherit" }}>
+                        <Link to="/doctors" className='btn-link'>
                             <Button type='button' variant='outline-primary'>Find a Doctor</Button>
                         </Link>
                     </div>

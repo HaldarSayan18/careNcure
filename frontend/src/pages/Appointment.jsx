@@ -8,12 +8,13 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css';
 import { toast, ToastContainer } from 'react-toastify';
 import { appointmentFormValidation } from '../validation/FormValidation';
+import { baseURL } from '../assets/API/API.js';
 
 const Appointment = () => {
     const [phone, setPhone] = useState('');
     const handleAppointmentSubmit = (values, { resetForm }) => {
         values.contact_number = phone;
-        axios.post("http://localhost:8081/api/patient/registration", values)
+        axios.post(`${baseURL}/appoinment/book`, values)
             .then((res) => {
                 console.log("Form Submitted:", res.data);
                 toast.success("Booked!");

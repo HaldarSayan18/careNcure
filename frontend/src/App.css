@@ -2,6 +2,7 @@
   width: 100%;
   padding: 0;
   margin: 0;
+  /* overflow-x: hidden; */
 }
 
 /* admin header design start */
@@ -64,7 +65,7 @@
   align-items: center;
   gap: 35rem;
   /* border: 1px solid yellow; */
-  width: 99.8%;
+  width: inherit;
   height: 70px;
   box-shadow: 0px 0px 10px 2px rgba(26, 65, 138, 0.473);
 }
@@ -363,7 +364,7 @@
   /* border: 1px solid red; */
 }
 
-.doctors-card{
+.doctors-card {
   height: 380px !important;
   width: 180px;
   margin-top: 20px;
@@ -472,18 +473,18 @@
 
 /* Mobile (<=768px) */
 @media screen and (max-width: 768px) {
-  body {
-    width: 100%;
-  }
 
   .navbar-container,
   .admin-navbar-container {
     /* flex-direction: column; */
-
     display: flex;
     justify-content: space-between;
     height: auto;
-    padding: 1rem;
+    /* padding: 1rem; */
+  }
+
+  .logo {
+    margin-left: 0;
   }
 
   .navbar-items {
@@ -497,6 +498,20 @@
     width: 80%;
   }
 
+  .home-section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
+  .home-section1 img {
+    height: 250px;
+    width: 230px;
+  }
+
   .appointment-form {
     width: 80%;
   }
@@ -506,8 +521,39 @@
   }
 
   .footer-container {
-    flex-direction: column;
+    display: flex;
     text-align: center;
+  }
+
+  .footer-logo {
+    height: auto;
+    width: 150px;
+  }
+
+  .footer-container-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    /* width: 100%; */
+    gap: 10px;
+    padding-right: 15px;
+  }
+
+  .doctors-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .doctors-list-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    gap: 8px;
   }
 }
 
@@ -541,6 +587,10 @@
   }
 }
 
+body {
+  box-sizing: border-box;
+}
+
 /* --- Hamburger --- */
 .hamburger {
   display: none;
@@ -549,6 +599,8 @@
   width: 26px;
   height: 20px;
   cursor: pointer;
+  z-index: 9999;
+  overflow-y: auto;
 }
 
 .hamburger span {
@@ -579,17 +631,16 @@
   }
 
   .navbar-items {
-    position: absolute;
+    position: fixed;
     top: 70px;
-    right: 0;
+    left: 0;
     width: 100%;
-    /* flex-direction: column; */
-    align-items: center;
     background: white;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
     height: 0;
     overflow: hidden;
     transition: height 0.3s ease;
+    z-index: 9999;
   }
 
   .navbar-items.active {

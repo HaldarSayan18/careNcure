@@ -22,11 +22,16 @@ function App() {
       <Routes>
         <Route path='/' element={<Header />}>
           <Route index element={<Home />} />
-          <Route path='doctors' element={<ProtectedRoute><Doctors /></ProtectedRoute>} />
+          <Route path='doctors' element={<Doctors />} />
+          <Route path='appointment' element={<Appointment />} />
+          <Route path='appointment' element={<Appointment />} />
+          <Route path='bed-availability' element={<BedAvailability />} />
+          <Route path='my-profile' element={<UserProfile />} />
+          {/* <Route path='doctors' element={<ProtectedRoute><Doctors /></ProtectedRoute>} />
           <Route path='appointment' element={<ProtectedRoute><Appointment /></ProtectedRoute>} />
           <Route path='appointment' element={<ProtectedRoute><Appointment /></ProtectedRoute>} />
           <Route path='bed-availability' element={<ProtectedRoute><BedAvailability /></ProtectedRoute>} />
-          <Route path='my-profile' element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+          <Route path='my-profile' element={<ProtectedRoute><UserProfile /></ProtectedRoute>} /> */}
           <Route path='*' element={<WorkInProgress />} />
           <Route path='*' element={<WorkInProgress />} />
         </Route>

@@ -41,6 +41,9 @@ public class Appoinment {
 	@Column(nullable = false)
 	private Date date;
 	private String purpose;
+	private String applicationStatus="Pending";
+	private boolean visited;
+	
 	public Appoinment( int bookedBy, String patientName, int age, String address, long mobileNo,
 			Speciality speciality, Doctor doctor, Hospital hospital, Date date, String purpose) {
 		super();
@@ -63,12 +66,6 @@ public class Appoinment {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getbookedBy() {
-		return bookedBy;
-	}
-	public void setbookedBy(int bookedBy) {
-		this.bookedBy = bookedBy;
 	}
 	public String getPatientName() {
 		return patientName;
@@ -123,5 +120,23 @@ public class Appoinment {
 	}
 	public void setPurpose(String purpose) {
 		this.purpose = purpose;
+	}
+	public int getBookedBy() {
+		return bookedBy;
+	}
+	public void setBookedBy(int bookedBy) {
+		this.bookedBy = bookedBy;
+	}
+	public String getApplicationStatus() {
+		return applicationStatus;
+	}
+	public void setApplicationStatus(String applicationStatus) {
+		this.applicationStatus = applicationStatus;
+	}
+	public boolean isVisited() {
+		return visited;
+	}
+	public void setVisited(boolean visited) {
+		this.visited = visited;
 	}
 }

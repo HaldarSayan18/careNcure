@@ -13,7 +13,7 @@ public class CorsConfig {
 	            @Override
 	            public void addCorsMappings(CorsRegistry registry) {
 	                registry.addMapping("/**")
-	                        .allowedOrigins("http://localhost:3000", "http://192.168.1.10:3000") // dev and LAN
+	                        .allowedOrigins("https://carencure-imae.onrender.com") // dev and LAN
 	                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 	                        .allowedHeaders("*");
 	            }

@@ -1,0 +1,1 @@
+export const baseURL = "https://carencure-imae.onrender.com/api"

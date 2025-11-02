@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -12,9 +13,16 @@ const Appointment = () => {
     const [phone, setPhone] = useState('');
     const handleAppointmentSubmit = (values, { resetForm }) => {
         values.contact_number = phone;
-        console.log("Form Submitted:", values);
-        toast.success("Booked!");
-        resetForm();
+        axios.post("http://localhost:8081/api/patient/registration", values)
+            .then((res) => {
+                console.log("Form Submitted:", res.data);
+                toast.success("Booked!");
+                resetForm();
+            })
+            .catch((err) => {
+                console.error("Error:", err);
+                toast.error("Something went wrong!");
+            });
     };
     return (
         <div className='appointment-container'>

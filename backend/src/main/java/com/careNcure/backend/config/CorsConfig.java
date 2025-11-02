@@ -13,7 +13,7 @@ public class CorsConfig {
 	            @Override
 	            public void addCorsMappings(CorsRegistry registry) {
 	                registry.addMapping("/**")
-	                        .allowedOrigins("https://carencure-imae.onrender.com") // dev and LAN
+	                        .allowedOrigins("https://care-ncure.vercel.app/") // dev and LAN
 	                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 	                        .allowedHeaders("*");
 	            }

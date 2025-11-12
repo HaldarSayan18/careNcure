@@ -1,7 +1,5 @@
 package com.careNcure.backend.payLoads;
 
-import java.util.Date;
-
 public class AppoinmentDTO {
 	private int id;
     private int bookedBy;
@@ -15,7 +13,7 @@ public class AppoinmentDTO {
     private String doctorName;
     private int hospitalId;
     private String hospitalName;
-    private Date date;
+    private String date;
     private String purpose;
 	public int getId() {
 		return id;
@@ -89,10 +87,10 @@ public class AppoinmentDTO {
 	public void setHospitalName(String hospitalName) {
 		this.hospitalName = hospitalName;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getPurpose() {

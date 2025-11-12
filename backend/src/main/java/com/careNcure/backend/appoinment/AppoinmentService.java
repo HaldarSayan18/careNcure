@@ -1,5 +1,6 @@
 package com.careNcure.backend.appoinment;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,12 +58,12 @@ public class AppoinmentService {
 		Hospital hospital = hospitalRepo.findById(appoinmentDTO.getHospitalId())
 				.orElseThrow(() -> new RuntimeException("Hospital not found"));
 
-		// Convert util.Date -> sql.Date
-		java.sql.Date sqlDate = new java.sql.Date(appoinmentDTO.getDate().getTime());
+		Date date=Date.valueOf(appoinmentDTO.getDate());
+		
 
 		// Create appointment entity
 		Appoinment appoinment = new Appoinment(user.getId(), appoinmentDTO.getPatientName(), appoinmentDTO.getAge(),
-				appoinmentDTO.getAddress(), appoinmentDTO.getMobileNo(), speciality, doctor, hospital, sqlDate,
+				appoinmentDTO.getAddress(), appoinmentDTO.getMobileNo(), speciality, doctor, hospital, date,
 				appoinmentDTO.getPurpose());
 
 		// Save appointment

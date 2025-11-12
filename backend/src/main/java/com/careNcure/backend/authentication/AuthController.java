@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import com.careNcure.backend.payLoads.LoginDTO;
@@ -27,18 +29,26 @@ public class AuthController {
 	// --- 1️⃣ Login ---
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
-		if(loginDTO.getLogin()==null)
-			throw new NullPointerException("Email or mobile can not be empty");
-		else if(loginDTO.getPassword()==null)
-			throw new NullPointerException("Password cannot be empty");
-		Map<String, String> response= new HashMap<String, String>();
-		Authentication auth = authenticationManager
-				.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getLogin(), loginDTO.getPassword()));
-		String accessToken = jwtService.generateAccessToken(loginDTO.getLogin());
-		String refreshToken =jwtService.generateRefreshToken(loginDTO.getLogin());
-		response.put("AccessToken", accessToken);
-		response.put("RefreshToken", refreshToken);
-		return ResponseEntity.status(HttpStatus.OK).body(response);
+		try {
+			if(loginDTO.getLogin()==null)
+				throw new NullPointerException("Email or mobile can not be empty");
+			else if(loginDTO.getPassword()==null)
+				throw new NullPointerException("Password cannot be empty");
+			Map<String, String> response= new HashMap<String, String>();
+			Authentication auth = authenticationManager
+					.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getLogin(), loginDTO.getPassword()));
+			String accessToken = jwtService.generateAccessToken(loginDTO.getLogin());
+			String refreshToken =jwtService.generateRefreshToken(loginDTO.getLogin());
+			response.put("AccessToken", accessToken);
+			response.put("RefreshToken", refreshToken);
+			response.put("role", auth.getAuthorities().stream()
+			        .findFirst()
+			        .map(GrantedAuthority::getAuthority)
+			        .orElse(null));
+			return ResponseEntity.status(HttpStatus.OK).body(response);
+		}catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Credentials");
+		}
 
 	}
 

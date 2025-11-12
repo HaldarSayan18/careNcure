@@ -1,4 +1,3 @@
-import React from 'react'
 import '../App.css';
 import doctor1 from '../assets/doctor1.png';
 import doctor2 from '../assets/doctor2.png';

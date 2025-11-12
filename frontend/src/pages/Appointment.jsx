@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
 import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css';
 import { toast, ToastContainer } from 'react-toastify';
 import { appointmentFormValidation } from '../validation/FormValidation';

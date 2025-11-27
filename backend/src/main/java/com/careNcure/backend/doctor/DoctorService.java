@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -47,6 +49,9 @@ public class DoctorService {
 			e.printStackTrace();
 		}
 		return doctorRepo.save(doctor);
+	}
+	public Page<Doctor> getDoctorListByHospitalId(int hospitalId,Pageable pageable){
+		return doctorRepo.findByHospitalId(hospitalId, pageable);
 	}
 	
 	public Map<Integer, Map<String, Object>> getDoctorList(){

@@ -11,8 +11,14 @@ import { baseURL } from '../assets/API/API.js';
 const Appointment = () => {
     // const [phone, setPhone] = useState('');
     const handleAppointmentSubmit = (values, { resetForm }) => {
+        const token = localStorage.getItem("token");
         // values.contact_number = phone;
-        axios.post(`${baseURL}/appoinment/book`, values)
+        axios.post(`${baseURL}/appoinment/book`, values, {
+            headers: {
+                Authorization:`Bearer ${token}`,
+                "Content-Type": "application/json",
+            }
+        })
             .then((res) => {
                 console.log("Form Submitted:", res.data);
                 toast.success("Booked!");

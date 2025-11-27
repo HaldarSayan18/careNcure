@@ -13,8 +13,10 @@ public class CorsConfig {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						// .allowedOrigins("https://care-ncure.vercel.app/") // dev and LAN
-						.allowedOrigins("https://localhost:3000/") // dev and LAN
+						.allowedOrigins(
+                                "http://localhost:3000",
+                                "https://care-ncure.vercel.app"
+                        ) // dev and LAN
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 						.allowedHeaders("*");
 			}

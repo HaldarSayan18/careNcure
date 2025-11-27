@@ -60,6 +60,8 @@ public class AppoinmentService {
 
 		Date date=Date.valueOf(appoinmentDTO.getDate());
 		
+		if(appoinmentRepo.findByBookedByAndDoctorAndDateAndPatientName(user.getId(), doctor, date,appoinmentDTO.getPatientName())!=null)
+			throw new RuntimeException("Appoinment alredy exist with same patient name");
 
 		// Create appointment entity
 		Appoinment appoinment = new Appoinment(user.getId(), appoinmentDTO.getPatientName(), appoinmentDTO.getAge(),

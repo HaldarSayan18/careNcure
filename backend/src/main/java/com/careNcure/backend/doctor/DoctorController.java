@@ -3,6 +3,8 @@ package com.careNcure.backend.doctor;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,9 +36,12 @@ public class DoctorController{
         }
     }
     @GetMapping("/doctor-list")
-    public ResponseEntity<?> getDoctors(){
+    public ResponseEntity<?> getDoctors(@RequestParam int hospitalId,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size){
     	try {
-			Map<Integer, Map<String, Object>> response=doctorService.getDoctorList();
+    		PageRequest pageable=PageRequest.of(page, size);
+			Page<Doctor> response=doctorService.getDoctorListByHospitalId(hospitalId, pageable);
 			return ResponseEntity.status(HttpStatus.OK).body(response);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(e.getMessage(), false));
